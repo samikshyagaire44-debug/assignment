@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Development - CET138</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">CET138 Portfolio</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="fullstack.html" class="nav-link">Full Stack</a></li>
+                <li><a href="html.html" class="nav-link">HTML</a></li>
+                <li><a href="css.html" class="nav-link">CSS</a></li>
+                <li><a href="bootstrap.html" class="nav-link">Bootstrap</a></li>
+                <li><a href="javascript.html" class="nav-link">JavaScript</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Backend Development</h1>
+            <p>Server-side programming that powers web applications behind the scenes</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Backend Explanation -->
+        <section class="section">
+            <h2>What is Backend Development?</h2>
+            <p>
+                Backend development, also known as server-side development, refers to the behind-the-scenes functionality 
+                of web applications that users don't directly see or interact with. It encompasses all the server-side 
+                logic, database operations, user authentication, API development, and system architecture that makes 
+                web applications functional and secure.
+            </p>
+            
+            <p>
+                The backend serves as the bridge between the frontend user interface and the database, processing requests, 
+                implementing business logic, managing user sessions, and ensuring data security. Backend developers work 
+                with servers, databases, and application programming interfaces (APIs) to create robust, scalable, and 
+                secure web applications that can handle multiple users and complex operations simultaneously.
+            </p>
+
+            <p>
+                Modern backend development involves creating RESTful APIs, implementing microservices architecture, 
+                managing cloud infrastructure, and ensuring application security through proper authentication and 
+                authorization mechanisms. Backend developers must also consider performance optimization, error handling, 
+                logging, and monitoring to maintain reliable and efficient web services.
+            </p>
+
+            <h3>Popular Backend Languages and Technologies</h3>
+            <p>
+                Backend development can be implemented using various programming languages and frameworks, each with 
+                their own strengths and use cases:
+            </p>
+            <ul>
+                <li><strong>Node.js:</strong> JavaScript runtime for building fast, scalable server-side applications</li>
+                <li><strong>Python:</strong> Versatile language with frameworks like Django and Flask for web development</li>
+                <li><strong>PHP:</strong> Widely-used server-side scripting language, especially with Laravel framework</li>
+                <li><strong>Java:</strong> Enterprise-grade language with Spring framework for large-scale applications</li>
+                <li><strong>C#:</strong> Microsoft's language with ASP.NET framework for Windows-based applications</li>
+                <li><strong>Ruby:</strong> Dynamic language with Ruby on Rails framework for rapid development</li>
+            </ul>
+
+            <h3>Authentication, Security, and Business Logic</h3>
+            <p>
+                Backend development is crucial for implementing security measures that protect user data and application 
+                integrity. This includes user authentication (verifying user identity), authorization (controlling access 
+                to resources), data validation, encryption, and protection against common security vulnerabilities like 
+                SQL injection and cross-site scripting (XSS).
+            </p>
+            
+            <p>
+                Business logic implementation is another key aspect of backend development, where complex rules and 
+                processes specific to the application domain are coded. This might include payment processing, inventory 
+                management, user role management, data processing algorithms, and integration with third-party services 
+                and APIs.
+            </p>
+        </section>
+
+        <!-- Node.js Example -->
+        <section class="section">
+            <h2>Node.js Express Server Example</h2>
+            <p>Here's a simple Node.js Express server that demonstrates basic backend functionality:</p>
+            
+            <div class="code-example">
+                <div class="code-title">package.json - Project Dependencies</div>
+                <pre>{
+  "name": "backend-example",
+  "version": "1.0.0",
+  "description": "Simple Node.js backend example",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "bcrypt": "^5.1.0",
+    "jsonwebtoken": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}</pre>
+            </div>
+
+            <div class="code-example">
+                <div class="code-title">server.js - Main Server File</div>
+                <pre>const express = require('express');
+const cors = require('cors');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+const JWT_SECRET = 'your-secret-key';
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// In-memory data storage (in real apps, use a database)
+let users = [];
+let posts = [];
+
+// Routes
+
+// Home route
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Welcome to the Backend API',
+        version: '1.0.0',
+        endpoints: {
+            'GET /': 'API information',
+            'POST /register': 'User registration',
+            'POST /login': 'User authentication',
+            'GET /posts': 'Get all posts',
+            'POST /posts': 'Create new post (requires auth)'
+        }
+    });
+});
+
+// User registration
+app.post('/register', async (req, res) => {
+    try {
+        const { username, email, password } = req.body;
+        
+        // Validate input
+        if (!username || !email || !password) {
+            return res.status(400).json({
+                error: 'Username, email, and password are required'
+            });
+        }
+        
+        // Check if user already exists
+        const existingUser = users.find(user => user.email === email);
+        if (existingUser) {
+            return res.status(409).json({
+                error: 'User with this email already exists'
+            });
+        }
+        
+        // Hash password
+        const hashedPassword = await bcrypt.hash(password, 10);
+        
+        // Create new user
+        const newUser = {
+            id: users.length + 1,
+            username,
+            email,
+            password: hashedPassword,
+            createdAt: new Date().toISOString()
+        };
+        
+        users.push(newUser);
+        
+        // Return user without password
+        const { password: _, ...userResponse } = newUser;
+        res.status(201).json({
+            message: 'User registered successfully',
+            user: userResponse
+        });
+        
+    } catch (error) {
+        res.status(500).json({
+            error: 'Internal server error'
+        });
+    }
+});
+
+// User login
+app.post('/login', async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        
+        // Find user
+        const user = users.find(u => u.email === email);
+        if (!user) {
+            return res.status(401).json({
+                error: 'Invalid credentials'
+            });
+        }
+        
+        // Check password
+        const isValidPassword = await bcrypt.compare(password, user.password);
+        if (!isValidPassword) {
+            return res.status(401).json({
+                error: 'Invalid credentials'
+            });
+        }
+        
+        // Generate JWT token
+        const token = jwt.sign(
+            { userId: user.id, email: user.email },
+            JWT_SECRET,
+            { expiresIn: '24h' }
+        );
+        
+        res.json({
+            message: 'Login successful',
+            token,
+            user: {
+                id: user.id,
+                username: user.username,
+                email: user.email
+            }
+        });
+        
+    } catch (error) {
+        res.status(500).json({
+            error: 'Internal server error'
+        });
+    }
+});
+
+// Middleware to verify JWT token
+const authenticateToken = (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+    
+    if (!token) {
+        return res.status(401).json({
+            error: 'Access token required'
+        });
+    }
+    
+    jwt.verify(token, JWT_SECRET, (err, user) => {
+        if (err) {
+            return res.status(403).json({
+                error: 'Invalid or expired token'
+            });
+        }
+        req.user = user;
+        next();
+    });
+};
+
+// Get all posts
+app.get('/posts', (req, res) => {
+    res.json({
+        posts: posts.map(post => ({
+            ...post,
+            author: users.find(u => u.id === post.authorId)?.username
+        }))
+    });
+});
+
+// Create new post (protected route)
+app.post('/posts', authenticateToken, (req, res) => {
+    const { title, content } = req.body;
+    
+    if (!title || !content) {
+        return res.status(400).json({
+            error: 'Title and content are required'
+        });
+    }
+    
+    const newPost = {
+        id: posts.length + 1,
+        title,
+        content,
+        authorId: req.user.userId,
+        createdAt: new Date().toISOString()
+    };
+    
+    posts.push(newPost);
+    
+    res.status(201).json({
+        message: 'Post created successfully',
+        post: {
+            ...newPost,
+            author: users.find(u => u.id === req.user.userId)?.username
+        }
+    });
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({
+        error: 'Something went wrong!'
+    });
+});
+
+// 404 handler
+app.use('*', (req, res) => {
+    res.status(404).json({
+        error: 'Route not found'
+    });
+});
+
+// Start server
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+    console.log(`Visit http://localhost:${PORT} to see the API`);
+});</pre>
+            </div>
+
+            <div class="code-example">
+                <div class="code-title">Example API Usage</div>
+                <pre>// Register a new user
+POST /register
+Content-Type: application/json
+
+{
+    "username": "johndoe",
+    "email": "john@example.com",
+    "password": "securepassword123"
+}
+
+// Login user
+POST /login
+Content-Type: application/json
+
+{
+    "email": "john@example.com",
+    "password": "securepassword123"
+}
+
+// Create a post (requires authentication)
+POST /posts
+Authorization: Bearer YOUR_JWT_TOKEN
+Content-Type: application/json
+
+{
+    "title": "My First Post",
+    "content": "This is the content of my first post!"
+}
+
+// Get all posts
+GET /posts</pre>
+            </div>
+
+            <p>
+                This Node.js Express server demonstrates key backend concepts including user registration with password 
+                hashing, JWT-based authentication, protected routes, input validation, error handling, and RESTful API design. 
+                The server provides a foundation for building more complex web applications with user management and content creation.
+            </p>
+        </section>
+
+        <!-- Backend Architecture -->
+        <section class="section">
+            <h2>Backend Architecture Concepts</h2>
+            <p>
+                Modern backend development involves several architectural patterns and concepts that ensure scalability, 
+                maintainability, and performance:
+            </p>
+            
+            <ul>
+                <li><strong>RESTful APIs:</strong> Architectural style for designing networked applications using HTTP methods</li>
+                <li><strong>Microservices:</strong> Breaking applications into small, independent services</li>
+                <li><strong>Database Design:</strong> Structuring data storage for efficiency and integrity</li>
+                <li><strong>Caching:</strong> Storing frequently accessed data in memory for faster retrieval</li>
+                <li><strong>Load Balancing:</strong> Distributing incoming requests across multiple servers</li>
+                <li><strong>API Documentation:</strong> Clear documentation for API endpoints and usage</li>
+                <li><strong>Testing:</strong> Unit tests, integration tests, and API testing</li>
+                <li><strong>Deployment:</strong> CI/CD pipelines and cloud infrastructure management</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

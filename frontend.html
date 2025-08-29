@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Development - CET138</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">CET138 Portfolio</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="fullstack.html" class="nav-link">Full Stack</a></li>
+                <li><a href="html.html" class="nav-link">HTML</a></li>
+                <li><a href="css.html" class="nav-link">CSS</a></li>
+                <li><a href="bootstrap.html" class="nav-link">Bootstrap</a></li>
+                <li><a href="javascript.html" class="nav-link">JavaScript</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Frontend Development</h1>
+            <p>Creating engaging user interfaces and experiences with modern web technologies</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Frontend Explanation -->
+        <section class="section">
+            <h2>What is Frontend Development?</h2>
+            <p>
+                Frontend development, also known as client-side development, focuses on creating the visual and interactive 
+                elements of websites and web applications that users directly interact with. It encompasses everything users 
+                see, click, and experience in their web browsers, from layout and design to animations and user interface components.
+            </p>
+            
+            <p>
+                Frontend development combines three core technologies: <a href="html.html" class="content-link">HTML</a> 
+                provides the structural foundation and content, <a href="css.html" class="content-link">CSS</a> handles 
+                styling and visual presentation, and <a href="javascript.html" class="content-link">JavaScript</a> adds 
+                interactivity and dynamic behavior. Modern frontend development also leverages powerful frameworks and 
+                libraries like React, Angular, and Vue.js to create sophisticated single-page applications.
+            </p>
+
+            <p>
+                The frontend developer's role extends beyond just coding. They must understand user experience (UX) principles, 
+                responsive design concepts, browser compatibility issues, and performance optimization techniques. They work 
+                closely with designers to translate mockups and wireframes into functional, accessible, and performant web interfaces 
+                that provide excellent user experiences across different devices and screen sizes.
+            </p>
+
+            <h3>Core Frontend Technologies</h3>
+            <div class="cards-container">
+                <div class="card">
+                    <h3>HTML (HyperText Markup Language)</h3>
+                    <p>The backbone of web content, providing semantic structure and meaning to web pages through elements and tags.</p>
+                    <a href="html.html" class="card-link">Learn HTML →</a>
+                </div>
+
+                <div class="card">
+                    <h3>CSS (Cascading Style Sheets)</h3>
+                    <p>Controls the visual presentation, layout, colors, fonts, and responsive behavior of web pages across devices.</p>
+                    <a href="css.html" class="card-link">Learn CSS →</a>
+                </div>
+
+                <div class="card">
+                    <h3>JavaScript</h3>
+                    <p>Adds interactivity, dynamic content updates, form validation, and complex user interface behaviors to web pages.</p>
+                    <a href="javascript.html" class="card-link">Learn JavaScript →</a>
+                </div>
+            </div>
+
+            <h3>Role in User Experience & User Interface</h3>
+            <p>
+                Frontend development plays a crucial role in creating positive user experiences by focusing on usability, 
+                accessibility, and performance. Good frontend development ensures that websites are intuitive to navigate, 
+                load quickly, work across different browsers and devices, and provide clear feedback to user interactions.
+            </p>
+            
+            <p>
+                User Interface (UI) design principles are integral to frontend development, including visual hierarchy, 
+                color theory, typography, and layout design. Frontend developers must balance aesthetic appeal with 
+                functionality, ensuring that beautiful designs translate into practical, usable interfaces that serve 
+                the needs of diverse user groups.
+            </p>
+        </section>
+
+        <!-- Code Example -->
+        <section class="section">
+            <h2>Frontend Development Example</h2>
+            <p>Here's a simple example that demonstrates how HTML, CSS, and JavaScript work together:</p>
+            
+            <div class="code-example">
+                <div class="code-title">HTML Structure</div>
+                <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Frontend Example&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;h1 id="title"&gt;Welcome to Frontend Development&lt;/h1&gt;
+        &lt;p class="description"&gt;This is a simple interactive example.&lt;/p&gt;
+        &lt;button id="changeColor"&gt;Change Color&lt;/button&gt;
+        &lt;button id="addText"&gt;Add Text&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+            </div>
+
+            <div class="code-example">
+                <div class="code-title">CSS Styling</div>
+                <pre>.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+#title {
+    color: #2c5aa0;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+button {
+    background: linear-gradient(135deg, #2c5aa0, #1e3a5f);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}</pre>
+            </div>
+
+            <div class="code-example">
+                <div class="code-title">JavaScript Interactivity</div>
+                <pre>// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    const title = document.getElementById('title');
+    const changeColorBtn = document.getElementById('changeColor');
+    const addTextBtn = document.getElementById('addText');
+    
+    // Array of colors to cycle through
+    const colors = ['#2c5aa0', '#e74c3c', '#27ae60', '#f39c12', '#9b59b6'];
+    let colorIndex = 0;
+    
+    // Change title color when button is clicked
+    changeColorBtn.addEventListener('click', function() {
+        colorIndex = (colorIndex + 1) % colors.length;
+        title.style.color = colors[colorIndex];
+    });
+    
+    // Add dynamic text when button is clicked
+    addTextBtn.addEventListener('click', function() {
+        const newParagraph = document.createElement('p');
+        newParagraph.textContent = 'New text added at ' + new Date().toLocaleTimeString();
+        newParagraph.style.color = '#666';
+        newParagraph.style.fontStyle = 'italic';
+        document.querySelector('.container').appendChild(newParagraph);
+    });
+});</pre>
+            </div>
+
+            <p>
+                This example demonstrates the separation of concerns in frontend development: HTML provides structure, 
+                CSS handles presentation, and JavaScript adds interactivity. The result is a cohesive user experience 
+                that combines all three technologies effectively.
+            </p>
+        </section>
+
+        <!-- Modern Frontend Frameworks -->
+        <section class="section">
+            <h2>Modern Frontend Frameworks & Libraries</h2>
+            <p>
+                While HTML, CSS, and JavaScript form the foundation of frontend development, modern applications often 
+                use frameworks and libraries to streamline development and create more sophisticated user interfaces:
+            </p>
+            
+            <ul>
+                <li><strong>React:</strong> A JavaScript library for building user interfaces with reusable components</li>
+                <li><strong>Angular:</strong> A comprehensive framework for building dynamic web applications</li>
+                <li><strong>Vue.js:</strong> A progressive framework that's easy to integrate into existing projects</li>
+                <li><strong>Bootstrap:</strong> A CSS framework for responsive, mobile-first web development</li>
+                <li><strong>Sass/SCSS:</strong> CSS preprocessors that add programming features to stylesheets</li>
+                <li><strong>TypeScript:</strong> A typed superset of JavaScript that compiles to plain JavaScript</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

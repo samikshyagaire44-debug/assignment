@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Basics - CET138</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">CET138 Portfolio</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="fullstack.html" class="nav-link">Full Stack</a></li>
+                <li><a href="html.html" class="nav-link">HTML</a></li>
+                <li><a href="css.html" class="nav-link active">CSS</a></li>
+                <li><a href="bootstrap.html" class="nav-link">Bootstrap</a></li>
+                <li><a href="javascript.html" class="nav-link">JavaScript</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>CSS Basics</h1>
+            <p>Styling and designing beautiful web pages with Cascading Style Sheets</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- What is CSS -->
+        <section class="section">
+            <h2>What is CSS?</h2>
+            <p>
+                CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation and visual formatting 
+                of HTML documents. While HTML provides the structure and content of web pages, CSS controls how that content 
+                looks, including colors, fonts, layouts, spacing, animations, and responsive behavior across different devices.
+            </p>
+            
+            <p>
+                The "cascading" nature of CSS refers to how styles are applied in a hierarchical manner, where more specific 
+                rules override general ones, and later rules can override earlier ones. This allows developers to create 
+                flexible and maintainable stylesheets that can handle complex design requirements while keeping code organized.
+            </p>
+
+            <p>
+                CSS separates content from presentation, making websites easier to maintain and allowing the same HTML content 
+                to be styled differently for various contexts (desktop, mobile, print, etc.). Modern CSS includes powerful 
+                features like Flexbox, Grid, animations, and custom properties that enable sophisticated layouts and interactions.
+            </p>
+        </section>
+
+        <!-- CSS Implementation Methods -->
+        <section class="section">
+            <h2>Three Ways to Implement CSS</h2>
+            <p>CSS can be applied to HTML documents in three different ways, each with its own use cases and benefits:</p>
+
+            <h3>1. Inline CSS</h3>
+            <p>CSS rules applied directly to individual HTML elements using the style attribute:</p>
+            <div class="code-example">
+                <div class="code-title">Inline CSS Example</div>
+                <pre>&lt;h1 style="color: blue; font-size: 2rem; text-align: center;"&gt;
+    Styled Heading
+&lt;/h1&gt;
+
+&lt;p style="background-color: #f0f0f0; padding: 15px; border-radius: 5px;"&gt;
+    This paragraph has inline styling applied directly to it.
+&lt;/p&gt;
+
+&lt;div style="width: 200px; height: 100px; background: linear-gradient(45deg, #ff6b6b, #4ecdc4);"&gt;
+    Gradient background div
+&lt;/div&gt;</pre>
+            </div>
+            <p><strong>Use cases:</strong> Quick styling, email templates, overriding specific styles</p>
+            <p><strong>Drawbacks:</strong> Not reusable, harder to maintain, mixes content with presentation</p>
+
+            <h3>2. Internal CSS</h3>
+            <p>CSS rules defined within the HTML document using the &lt;style&gt; tag in the &lt;head&gt; section:</p>
+            <div class="code-example">
+                <div class="code-title">Internal CSS Example</div>
+                <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Internal CSS Example&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        
+        .header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        
+        .content {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .button:hover {
+            background-color: #0056b3;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="header"&gt;
+        &lt;h1&gt;Welcome to My Site&lt;/h1&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="content"&gt;
+        &lt;p&gt;This content is styled with internal CSS.&lt;/p&gt;
+        &lt;button class="button"&gt;Click Me&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+            </div>
+            <p><strong>Use cases:</strong> Single-page styling, prototyping, page-specific styles</p>
+            <p><strong>Benefits:</strong> Keeps styles with HTML, no external file needed</p>
+
+            <h3>3. External CSS</h3>
+            <p>CSS rules stored in separate .css files and linked to HTML documents:</p>
+            <div class="code-example">
+                <div class="code-title">styles.css (External File)</div>
+                <pre>/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+/* Header styles */
+.site-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.site-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Navigation styles */
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Content styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Button styles */
+.btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .site-header h1 {
+        font-size: 2rem;
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+}</pre>
+            </div>
+            
+            <div class="code-example">
+                <div class="code-title">HTML File Linking External CSS</div>
+                <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;External CSS Example&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header class="site-header"&gt;
+        &lt;h1&gt;My Website&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;ul class="nav-menu"&gt;
+                &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#about"&gt;About&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    
+    &lt;main class="container"&gt;
+        &lt;div class="card"&gt;
+            &lt;h2&gt;Welcome&lt;/h2&gt;
+            &lt;p&gt;This page uses external CSS for styling.&lt;/p&gt;
+            &lt;a href="#" class="btn"&gt;Learn More&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+            </div>
+            <p><strong>Use cases:</strong> Multi-page websites, team projects, production websites</p>
+            <p><strong>Benefits:</strong> Reusable, maintainable, cacheable, separates concerns</p>
+        </section>
+
+        <!-- CSS Styling Examples -->
+        <section class="section">
+            <h2>CSS Styling Examples</h2>
+            <p>Here are practical examples of common CSS styling techniques:</p>
+
+            <h3>Text and Color Styling</h3>
+            <div class="code-example">
+                <div class="code-title">Text and Color Properties</div>
+                <pre>/* Font and text styling */
+.heading {
+    font-family: 'Georgia', serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.paragraph {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+
+/* Color variations */
+.text-primary { color: #007bff; }
+.text-success { color: #28a745; }
+.text-danger { color: #dc3545; }
+.text-warning { color: #ffc107; }
+.text-info { color: #17a2b8; }
+
+/* Background colors */
+.bg-light { background-color: #f8f9fa; }
+.bg-dark { background-color: #343a40; color: white; }
+.bg-primary { background-color: #007bff; color: white; }
+
+/* Gradient backgrounds */
+.gradient-bg {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+}</pre>
+            </div>
+
+            <h3>Layout and Positioning</h3>
+            <div class="code-example">
+                <div class="code-title">Layout Properties</div>
+                <pre>/* Box model properties */
+.box {
+    width: 300px;
+    height: 200px;
+    padding: 20px;          /* Space inside the element */
+    margin: 15px;           /* Space outside the element */
+    border: 2px solid #ddd; /* Border around the element */
+    border-radius: 8px;     /* Rounded corners */
+}
+
+/* Display properties */
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+/* Positioning */
+.relative-position {
+    position: relative;
+    top: 10px;
+    left: 20px;
+}
+
+.absolute-position {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+/* Floating elements */
+.float-left {
+    float: left;
+    margin-right: 1rem;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}</pre>
+            </div>
+
+            <h3>Interactive Elements and Animations</h3>
+            <div class="code-example">
+                <div class="code-title">Hover Effects and Animations</div>
+                <pre>/* Button hover effects */
+.interactive-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+}
+
+.interactive-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.interactive-button:active {
+    transform: translateY(-1px);
+}
+
+/* Card hover animations */
+.animated-card {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.animated-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Loading spinner animation */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Fade in animation */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pulse effect */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}</pre>
+            </div>
+        </section>
+
+        <!-- Responsive Design -->
+        <section class="section">
+            <h2>Responsive Design with CSS</h2>
+            <p>Modern CSS includes powerful features for creating responsive layouts that work across all devices:</p>
+            
+            <div class="code-example">
+                <div class="code-title">Media Queries and Responsive Design</div>
+                <pre>/* Mobile-first approach */
+.container {
+    width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+    .container {
+        max-width: 750px;
+        padding: 2rem;
+    }
+    
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 1200px;
+    }
+    
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .sidebar {
+        display: block;
+    }
+}
+
+/* Large desktop styles */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Flexible images */
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Flexible typography */
+.responsive-text {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+    line-height: 1.5;
+}</pre>
+            </div>
+        </section>
+
+        <!-- CSS Best Practices -->
+        <section class="section">
+            <h2>CSS Best Practices</h2>
+            <p>Following these best practices will help you write maintainable and efficient CSS:</p>
+            
+            <ul>
+                <li><strong>Use external CSS files:</strong> Keep styles separate from HTML for better organization</li>
+                <li><strong>Follow naming conventions:</strong> Use meaningful class names like BEM methodology</li>
+                <li><strong>Organize your CSS:</strong> Group related styles together and use comments</li>
+                <li><strong>Use CSS reset or normalize:</strong> Ensure consistent styling across browsers</li>
+                <li><strong>Optimize for performance:</strong> Minimize CSS files and avoid redundant rules</li>
+                <li><strong>Use CSS custom properties:</strong> Define reusable values with CSS variables</li>
+                <li><strong>Test across browsers:</strong> Ensure compatibility with different browsers</li>
+                <li><strong>Use semantic class names:</strong> Describe what elements are, not how they look</li>
+            </ul>
+
+            <div class="code-example">
+                <div class="code-title">CSS Custom Properties (Variables)</div>
+                <pre>/* Define custom properties in :root */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-base: 1rem;
+    --border-radius: 6px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Use custom properties */
+.button-primary {
+    background-color: var(--primary-color);
+    color: white;
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+}
+
+.button-primary:hover {
+    background-color: color-mix(in srgb, var(--primary-color) 80%, black);
+    transform: translateY(-2px);
+}
+
+.card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}</pre>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

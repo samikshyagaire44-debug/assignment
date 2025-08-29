@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Basics - CET138</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">CET138 Portfolio</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="fullstack.html" class="nav-link">Full Stack</a></li>
+                <li><a href="html.html" class="nav-link active">HTML</a></li>
+                <li><a href="css.html" class="nav-link">CSS</a></li>
+                <li><a href="bootstrap.html" class="nav-link">Bootstrap</a></li>
+                <li><a href="javascript.html" class="nav-link">JavaScript</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>HTML Basics</h1>
+            <p>Understanding the foundation of web development with HyperText Markup Language</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- What is HTML -->
+        <section class="section">
+            <h2>What is HTML?</h2>
+            <p>
+                HTML (HyperText Markup Language) is the standard markup language used to create web pages and web applications. 
+                It provides the basic structure and content of websites by using a system of elements and tags that define 
+                different parts of a document, such as headings, paragraphs, links, images, and other content.
+            </p>
+            
+            <p>
+                HTML is not a programming language but rather a markup language that uses tags to annotate text and define 
+                how content should be structured and displayed in web browsers. These tags tell the browser how to interpret 
+                and present the content to users, creating the foundation upon which all web pages are built.
+            </p>
+
+            <p>
+                Every HTML document follows a hierarchical structure, starting with the document type declaration, followed 
+                by the root HTML element, and then the head and body sections. This semantic structure allows browsers, 
+                search engines, and assistive technologies to understand and properly process web content.
+            </p>
+        </section>
+
+        <!-- Common HTML Tags -->
+        <section class="section">
+            <h2>Common HTML Tags</h2>
+            <p>HTML uses various tags to structure content. Here are the most commonly used tags in web development:</p>
+            
+            <h3>Headings</h3>
+            <p>HTML provides six levels of headings, from h1 (most important) to h6 (least important):</p>
+            <div class="code-example">
+                <div class="code-title">Heading Tags</div>
+                <pre>&lt;h1&gt;Main Heading (Most Important)&lt;/h1&gt;
+&lt;h2&gt;Section Heading&lt;/h2&gt;
+&lt;h3&gt;Subsection Heading&lt;/h3&gt;
+&lt;h4&gt;Sub-subsection Heading&lt;/h4&gt;
+&lt;h5&gt;Minor Heading&lt;/h5&gt;
+&lt;h6&gt;Smallest Heading&lt;/h6&gt;</pre>
+            </div>
+
+            <h3>Paragraphs and Text</h3>
+            <p>Paragraphs and text formatting are essential for content presentation:</p>
+            <div class="code-example">
+                <div class="code-title">Text Tags</div>
+                <pre>&lt;p&gt;This is a paragraph of text.&lt;/p&gt;
+&lt;p&gt;This is another paragraph with &lt;strong&gt;bold text&lt;/strong&gt; and &lt;em&gt;italic text&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;You can also use &lt;b&gt;bold&lt;/b&gt; and &lt;i&gt;italic&lt;/i&gt; tags.&lt;/p&gt;
+&lt;p&gt;For line breaks,&lt;br&gt;use the br tag.&lt;/p&gt;
+&lt;p&gt;Use &lt;mark&gt;highlight&lt;/mark&gt; to emphasize text.&lt;/p&gt;</pre>
+            </div>
+
+            <h3>Lists</h3>
+            <p>HTML supports both ordered (numbered) and unordered (bulleted) lists:</p>
+            <div class="code-example">
+                <div class="code-title">List Tags</div>
+                <pre>&lt;!-- Unordered List --&gt;
+&lt;ul&gt;
+    &lt;li&gt;First item&lt;/li&gt;
+    &lt;li&gt;Second item&lt;/li&gt;
+    &lt;li&gt;Third item&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Ordered List --&gt;
+&lt;ol&gt;
+    &lt;li&gt;First step&lt;/li&gt;
+    &lt;li&gt;Second step&lt;/li&gt;
+    &lt;li&gt;Third step&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Definition List --&gt;
+&lt;dl&gt;
+    &lt;dt&gt;HTML&lt;/dt&gt;
+    &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+    &lt;dt&gt;CSS&lt;/dt&gt;
+    &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+&lt;/dl&gt;</pre>
+            </div>
+
+            <h3>Links</h3>
+            <p>Links are fundamental to web navigation and connect different pages and resources:</p>
+            <div class="code-example">
+                <div class="code-title">Link Tags</div>
+                <pre>&lt;!-- Link to another page --&gt;
+&lt;a href="about.html"&gt;About Us&lt;/a&gt;
+
+&lt;!-- Link to external website --&gt;
+&lt;a href="https://www.example.com" target="_blank"&gt;External Link&lt;/a&gt;
+
+&lt;!-- Link to email address --&gt;
+&lt;a href="mailto:contact@example.com"&gt;Send Email&lt;/a&gt;
+
+&lt;!-- Link to phone number --&gt;
+&lt;a href="tel:+1234567890"&gt;Call Us&lt;/a&gt;
+
+&lt;!-- Link to section on same page --&gt;
+&lt;a href="#section1"&gt;Go to Section 1&lt;/a&gt;</pre>
+            </div>
+
+            <h3>Images</h3>
+            <p>Images enhance web content and provide visual context:</p>
+            <div class="code-example">
+                <div class="code-title">Image Tags</div>
+                <pre>&lt;!-- Basic image --&gt;
+&lt;img src="image.jpg" alt="Description of image"&gt;
+
+&lt;!-- Image with dimensions --&gt;
+&lt;img src="logo.png" alt="Company Logo" width="200" height="100"&gt;
+
+&lt;!-- Responsive image --&gt;
+&lt;img src="photo.jpg" alt="Photo description" style="max-width: 100%; height: auto;"&gt;
+
+&lt;!-- Image with link --&gt;
+&lt;a href="gallery.html"&gt;
+    &lt;img src="thumbnail.jpg" alt="Gallery thumbnail"&gt;
+&lt;/a&gt;</pre>
+            </div>
+        </section>
+
+        <!-- Basic HTML Structure -->
+        <section class="section">
+            <h2>Basic HTML Document Structure</h2>
+            <p>Every HTML document follows a standard structure with essential elements:</p>
+            
+            <div class="code-example">
+                <div class="code-title">Complete HTML Document</div>
+                <pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;!-- Meta information about the document --&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta name="description" content="A brief description of the page"&gt;
+    &lt;meta name="keywords" content="HTML, web development, tutorial"&gt;
+    &lt;meta name="author" content="Your Name"&gt;
+    
+    &lt;!-- Page title (appears in browser tab) --&gt;
+    &lt;title&gt;My Web Page Title&lt;/title&gt;
+    
+    &lt;!-- Link to external CSS file --&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+    
+    &lt;!-- Favicon --&gt;
+    &lt;link rel="icon" href="favicon.ico" type="image/x-icon"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Header section --&gt;
+    &lt;header&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="index.html"&gt;Home&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="about.html"&gt;About&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="contact.html"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;!-- Main content area --&gt;
+    &lt;main&gt;
+        &lt;section&gt;
+            &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+            &lt;p&gt;This is the main content of the page.&lt;/p&gt;
+            
+            &lt;article&gt;
+                &lt;h2&gt;Article Title&lt;/h2&gt;
+                &lt;p&gt;Article content goes here...&lt;/p&gt;
+                &lt;img src="article-image.jpg" alt="Article illustration"&gt;
+            &lt;/article&gt;
+        &lt;/section&gt;
+        
+        &lt;aside&gt;
+            &lt;h3&gt;Sidebar Content&lt;/h3&gt;
+            &lt;p&gt;Additional information or navigation.&lt;/p&gt;
+        &lt;/aside&gt;
+    &lt;/main&gt;
+
+    &lt;!-- Footer section --&gt;
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2024 My Website. All rights reserved.&lt;/p&gt;
+        &lt;p&gt;Contact: &lt;a href="mailto:info@example.com"&gt;info@example.com&lt;/a&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+
+    &lt;!-- JavaScript files --&gt;
+    &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+            </div>
+
+            <h3>Key Structure Elements Explained</h3>
+            <ul>
+                <li><strong>&lt;!DOCTYPE html&gt;:</strong> Declares the document type as HTML5</li>
+                <li><strong>&lt;html&gt;:</strong> Root element that contains all other elements</li>
+                <li><strong>&lt;head&gt;:</strong> Contains metadata not visible to users</li>
+                <li><strong>&lt;meta&gt;:</strong> Provides information about the document</li>
+                <li><strong>&lt;title&gt;:</strong> Sets the page title shown in browser tabs</li>
+                <li><strong>&lt;body&gt;:</strong> Contains all visible content</li>
+                <li><strong>&lt;header&gt;:</strong> Introductory content or navigation</li>
+                <li><strong>&lt;main&gt;:</strong> Primary content of the document</li>
+                <li><strong>&lt;section&gt;:</strong> Thematic grouping of content</li>
+                <li><strong>&lt;article&gt;:</strong> Self-contained piece of content</li>
+                <li><strong>&lt;aside&gt;:</strong> Content related to main content (sidebar)</li>
+                <li><strong>&lt;footer&gt;:</strong> Footer information</li>
+            </ul>
+        </section>
+
+        <!-- HTML Forms -->
+        <section class="section">
+            <h2>HTML Forms and Input Elements</h2>
+            <p>Forms allow users to input and submit data to web servers:</p>
+            
+            <div class="code-example">
+                <div class="code-title">Contact Form Example</div>
+                <pre>&lt;form action="submit-form.php" method="POST"&gt;
+    &lt;!-- Text input --&gt;
+    &lt;label for="name"&gt;Full Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" required&gt;
+    
+    &lt;!-- Email input --&gt;
+    &lt;label for="email"&gt;Email Address:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+    
+    &lt;!-- Password input --&gt;
+    &lt;label for="password"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="password" name="password" required&gt;
+    
+    &lt;!-- Number input --&gt;
+    &lt;label for="age"&gt;Age:&lt;/label&gt;
+    &lt;input type="number" id="age" name="age" min="18" max="100"&gt;
+    
+    &lt;!-- Date input --&gt;
+    &lt;label for="birthday"&gt;Birthday:&lt;/label&gt;
+    &lt;input type="date" id="birthday" name="birthday"&gt;
+    
+    &lt;!-- Radio buttons --&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Gender:&lt;/legend&gt;
+        &lt;input type="radio" id="male" name="gender" value="male"&gt;
+        &lt;label for="male"&gt;Male&lt;/label&gt;
+        
+        &lt;input type="radio" id="female" name="gender" value="female"&gt;
+        &lt;label for="female"&gt;Female&lt;/label&gt;
+        
+        &lt;input type="radio" id="other" name="gender" value="other"&gt;
+        &lt;label for="other"&gt;Other&lt;/label&gt;
+    &lt;/fieldset&gt;
+    
+    &lt;!-- Checkboxes --&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Interests:&lt;/legend&gt;
+        &lt;input type="checkbox" id="web-dev" name="interests" value="web-development"&gt;
+        &lt;label for="web-dev"&gt;Web Development&lt;/label&gt;
+        
+        &lt;input type="checkbox" id="design" name="interests" value="design"&gt;
+        &lt;label for="design"&gt;Design&lt;/label&gt;
+        
+        &lt;input type="checkbox" id="programming" name="interests" value="programming"&gt;
+        &lt;label for="programming"&gt;Programming&lt;/label&gt;
+    &lt;/fieldset&gt;
+    
+    &lt;!-- Select dropdown --&gt;
+    &lt;label for="country"&gt;Country:&lt;/label&gt;
+    &lt;select id="country" name="country"&gt;
+        &lt;option value=""&gt;Select a country&lt;/option&gt;
+        &lt;option value="us"&gt;United States&lt;/option&gt;
+        &lt;option value="ca"&gt;Canada&lt;/option&gt;
+        &lt;option value="uk"&gt;United Kingdom&lt;/option&gt;
+        &lt;option value="au"&gt;Australia&lt;/option&gt;
+    &lt;/select&gt;
+    
+    &lt;!-- Textarea --&gt;
+    &lt;label for="message"&gt;Message:&lt;/label&gt;
+    &lt;textarea id="message" name="message" rows="4" cols="50" 
+              placeholder="Enter your message here..."&gt;&lt;/textarea&gt;
+    
+    &lt;!-- File upload --&gt;
+    &lt;label for="resume"&gt;Upload Resume:&lt;/label&gt;
+    &lt;input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx"&gt;
+    
+    &lt;!-- Submit and reset buttons --&gt;
+    &lt;button type="submit"&gt;Submit Form&lt;/button&gt;
+    &lt;button type="reset"&gt;Reset Form&lt;/button&gt;
+&lt;/form&gt;</pre>
+            </div>
+        </section>
+
+        <!-- Semantic HTML -->
+        <section class="section">
+            <h2>Semantic HTML and Best Practices</h2>
+            <p>
+                Semantic HTML uses meaningful tags that describe the content's purpose rather than just its appearance. 
+                This improves accessibility, SEO, and code maintainability:
+            </p>
+            
+            <ul>
+                <li><strong>Use appropriate heading hierarchy:</strong> h1 for main title, h2 for sections, etc.</li>
+                <li><strong>Choose semantic elements:</strong> &lt;article&gt;, &lt;section&gt;, &lt;nav&gt;, &lt;aside&gt;</li>
+                <li><strong>Always include alt attributes:</strong> For images and accessibility</li>
+                <li><strong>Use labels with form inputs:</strong> Improves usability and accessibility</li>
+                <li><strong>Validate your HTML:</strong> Use W3C validator to check for errors</li>
+                <li><strong>Keep it clean:</strong> Proper indentation and commenting</li>
+                <li><strong>Mobile-first approach:</strong> Include viewport meta tag</li>
+            </ul>
+
+            <div class="code-example">
+                <div class="code-title">Semantic HTML Example</div>
+                <pre>&lt;article class="blog-post"&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Understanding HTML Semantics&lt;/h1&gt;
+        &lt;p&gt;Published on &lt;time datetime="2024-01-15"&gt;January 15, 2024&lt;/time&gt; 
+           by &lt;address&gt;John Doe&lt;/address&gt;&lt;/p&gt;
+    &lt;/header&gt;
+    
+    &lt;section&gt;
+        &lt;h2&gt;Introduction&lt;/h2&gt;
+        &lt;p&gt;Semantic HTML provides meaning to web content...&lt;/p&gt;
+    &lt;/section&gt;
+    
+    &lt;section&gt;
+        &lt;h2&gt;Benefits&lt;/h2&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Better accessibility&lt;/li&gt;
+            &lt;li&gt;Improved SEO&lt;/li&gt;
+            &lt;li&gt;Cleaner code&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/section&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;Tags: &lt;span class="tag"&gt;HTML&lt;/span&gt;, &lt;span class="tag"&gt;Web Development&lt;/span&gt;&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/article&gt;</pre>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Databases in Full Stack - CET138</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">CET138 Portfolio</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="fullstack.html" class="nav-link">Full Stack</a></li>
+                <li><a href="html.html" class="nav-link">HTML</a></li>
+                <li><a href="css.html" class="nav-link">CSS</a></li>
+                <li><a href="bootstrap.html" class="nav-link">Bootstrap</a></li>
+                <li><a href="javascript.html" class="nav-link">JavaScript</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Databases in Full Stack Development</h1>
+            <p>Understanding data storage and management in modern web applications</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Database Importance -->
+        <section class="section">
+            <h2>Why Databases are Important</h2>
+            <p>
+                Databases are the backbone of modern web applications, serving as the persistent storage layer that maintains 
+                application data even when servers restart or users close their browsers. They provide structured, organized, 
+                and secure ways to store, retrieve, update, and delete information that applications need to function effectively.
+            </p>
+            
+            <p>
+                In full stack development, databases enable applications to remember user preferences, store user-generated content, 
+                maintain product catalogs, track transactions, and preserve application state. Without databases, web applications 
+                would lose all data every time they restart, making them essentially useless for any practical purpose beyond 
+                static content display.
+            </p>
+
+            <p>
+                Databases also provide crucial features like data integrity, concurrent access control, backup and recovery 
+                mechanisms, and query optimization. They ensure that multiple users can access and modify data simultaneously 
+                without corruption, maintain relationships between different pieces of information, and provide efficient ways 
+                to search and filter large amounts of data.
+            </p>
+
+            <h3>Database Functions in Web Applications</h3>
+            <ul>
+                <li><strong>Data Persistence:</strong> Storing information permanently beyond application sessions</li>
+                <li><strong>User Management:</strong> Maintaining user accounts, profiles, and authentication data</li>
+                <li><strong>Content Storage:</strong> Saving posts, comments, images, and other user-generated content</li>
+                <li><strong>Transaction Processing:</strong> Recording purchases, payments, and financial data</li>
+                <li><strong>Analytics:</strong> Collecting and storing usage data for business intelligence</li>
+                <li><strong>Configuration:</strong> Storing application settings and customization options</li>
+            </ul>
+        </section>
+
+        <!-- SQL vs NoSQL -->
+        <section class="section">
+            <h2>SQL vs NoSQL Databases</h2>
+            <p>
+                The database world is primarily divided into two categories: SQL (relational) databases and NoSQL 
+                (non-relational) databases. Each type has distinct characteristics, advantages, and use cases that 
+                make them suitable for different types of applications and data requirements.
+            </p>
+
+            <div class="cards-container">
+                <div class="card">
+                    <h3>SQL Databases (Relational)</h3>
+                    <p>
+                        <strong>Examples:</strong> MySQL, PostgreSQL, SQLite, SQL Server<br>
+                        <strong>Structure:</strong> Tables with rows and columns<br>
+                        <strong>Schema:</strong> Fixed, predefined structure<br>
+                        <strong>Relationships:</strong> Foreign keys and joins<br>
+                        <strong>ACID:</strong> Strong consistency guarantees
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>NoSQL Databases (Non-relational)</h3>
+                    <p>
+                        <strong>Examples:</strong> MongoDB, Firebase, CouchDB, DynamoDB<br>
+                        <strong>Structure:</strong> Documents, key-value, graphs<br>
+                        <strong>Schema:</strong> Flexible, dynamic structure<br>
+                        <strong>Relationships:</strong> Embedded or referenced data<br>
+                        <strong>BASE:</strong> Eventual consistency, high availability
+                    </p>
+                </div>
+            </div>
+
+            <h3>When to Use SQL vs NoSQL</h3>
+            <p><strong>Choose SQL databases when:</strong></p>
+            <ul>
+                <li>You need complex queries with multiple joins</li>
+                <li>Data integrity and consistency are critical</li>
+                <li>You have well-defined, stable data structures</li>
+                <li>You need ACID compliance for transactions</li>
+                <li>Your team is familiar with SQL query language</li>
+            </ul>
+
+            <p><strong>Choose NoSQL databases when:</strong></p>
+            <ul>
+                <li>You need to scale horizontally across multiple servers</li>
+                <li>Your data structure is flexible or frequently changing</li>
+                <li>You're working with large volumes of unstructured data</li>
+                <li>You need high performance for simple read/write operations</li>
+                <li>You're building real-time applications</li>
+            </ul>
+        </section>
+
+        <!-- SQL Examples -->
+        <section class="section">
+            <h2>SQL Database Examples</h2>
+            <p>Here are practical examples of SQL operations commonly used in web applications:</p>
+            
+            <div class="code-example">
+                <div class="code-title">Creating Tables</div>
+                <pre>-- Create users table
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Create posts table with foreign key relationship
+CREATE TABLE posts (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(200) NOT NULL,
+    content TEXT NOT NULL,
+    author_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE
+);</pre>
+            </div>
+
+            <div class="code-example">
+                <div class="code-title">Basic CRUD Operations</div>
+                <pre>-- INSERT: Create new records
+INSERT INTO users (username, email, password_hash) 
+VALUES ('johndoe', 'john@example.com', 'hashed_password_here');
+
+INSERT INTO posts (title, content, author_id) 
+VALUES ('My First Post', 'This is the content of my first post.', 1);
+
+-- SELECT: Read/Query data
+SELECT * FROM users;
+
+SELECT id, username, email FROM users WHERE created_at > '2024-01-01';
+
+-- UPDATE: Modify existing records
+UPDATE users 
+SET email = 'newemail@example.com' 
+WHERE username = 'johndoe';
+
+UPDATE posts 
+SET title = 'Updated Post Title', updated_at = CURRENT_TIMESTAMP 
+WHERE id = 1;
+
+-- DELETE: Remove records
+DELETE FROM posts WHERE id = 1;
+
+DELETE FROM users WHERE created_at < '2023-01-01';</pre>
+            </div>
+
+            <div class="code-example">
+                <div class="code-title">Advanced Queries with Joins</div>
+                <pre>-- Get all posts with author information
+SELECT 
+    p.id,
+    p.title,
+    p.content,
+    p.created_at,
+    u.username as author,
+    u.email as author_email
+FROM posts p
+INNER JOIN users u ON p.author_id = u.id
+ORDER BY p.created_at DESC;
+
+-- Get users with their post count
+SELECT 
+    u.id,
+    u.username,
+    u.email,
+    COUNT(p.id) as post_count
+FROM users u
+LEFT JOIN posts p ON u.id = p.author_id
+GROUP BY u.id, u.username, u.email
+HAVING post_count > 0;
+
+-- Search posts by title or content
+SELECT 
+    p.title,
+    p.content,
+    u.username as author
+FROM posts p
+INNER JOIN users u ON p.author_id = u.id
+WHERE p.title LIKE '%javascript%' 
+   OR p.content LIKE '%javascript%'
+ORDER BY p.created_at DESC
+LIMIT 10;</pre>
+            </div>
+        </section>
+
+        <!-- NoSQL Examples -->
+        <section class="section">
+            <h2>NoSQL Database Examples</h2>
+            <p>Here are examples of NoSQL operations using MongoDB syntax:</p>
+            
+            <div class="code-example">
+                <div class="code-title">Document Structure</div>
+                <pre>// User document in MongoDB
+{
+  "_id": ObjectId("64a1b2c3d4e5f6789abcdef0"),
+  "username": "johndoe",
+  "email": "john@example.com",
+  "password_hash": "hashed_password_here",
+  "profile": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "bio": "Full stack developer",
+    "avatar": "https://example.com/avatar.jpg"
+  },
+  "preferences": {
+    "theme": "dark",
+    "notifications": true,
+    "language": "en"
+  },
+  "created_at": ISODate("2024-01-15T10:30:00Z"),
+  "updated_at": ISODate("2024-01-15T10:30:00Z")
+}
+
+// Post document with embedded comments
+{
+  "_id": ObjectId("64a1b2c3d4e5f6789abcdef1"),
+  "title": "My First Post",
+  "content": "This is the content of my first post.",
+  "author": {
+    "id": ObjectId("64a1b2c3d4e5f6789abcdef0"),
+    "username": "johndoe"
+  },
+  "tags": ["javascript", "web-development", "tutorial"],
+  "comments": [
+    {
+      "id": ObjectId("64a1b2c3d4e5f6789abcdef2"),
+      "author": "janedoe",
+      "content": "Great post!",
+      "created_at": ISODate("2024-01-16T14:20:00Z")
+    }
+  ],
+  "likes": 15,
+  "views": 234,
+  "created_at": ISODate("2024-01-15T12:45:00Z"),
+  "updated_at": ISODate("2024-01-16T14:20:00Z")
+}</pre>
+            </div>
+
+            <div class="code-example">
+                <div class="code-title">Basic MongoDB Operations</div>
+                <pre>// INSERT: Create new documents
+db.users.insertOne({
+  username: "johndoe",
+  email: "john@example.com",
+  password_hash: "hashed_password_here",
+  created_at: new Date()
+});
+
+db.posts.insertMany([
+  {
+    title: "First Post",
+    content: "Content here...",
+    author_id: ObjectId("64a1b2c3d4e5f6789abcdef0"),
+    created_at: new Date()
+  },
+  {
+    title: "Second Post",
+    content: "More content...",
+    author_id: ObjectId("64a1b2c3d4e5f6789abcdef0"),
+    created_at: new Date()
+  }
+]);
+
+// FIND: Query documents
+db.users.find();
+
+db.users.find({ username: "johndoe" });
+
+db.posts.find({ 
+  "author.username": "johndoe" 
+}).sort({ created_at: -1 });
+
+// UPDATE: Modify documents
+db.users.updateOne(
+  { username: "johndoe" },
+  { 
+    $set: { 
+      email: "newemail@example.com",
+      updated_at: new Date()
+    }
+  }
+);
+
+db.posts.updateMany(
+  { "author.username": "johndoe" },
+  { 
+    $inc: { views: 1 },
+    $set: { updated_at: new Date() }
+  }
+);
+
+// DELETE: Remove documents
+db.posts.deleteOne({ _id: ObjectId("64a1b2c3d4e5f6789abcdef1") });
+
+db.users.deleteMany({ created_at: { $lt: new Date("2023-01-01") } });</pre>
+            </div>
+
+            <div class="code-example">
+                <div class="code-title">Advanced MongoDB Queries</div>
+                <pre>// Aggregation pipeline for complex queries
+db.posts.aggregate([
+  // Match posts from the last 30 days
+  {
+    $match: {
+      created_at: { 
+        $gte: new Date(Date.now() - 30*24*60*60*1000) 
+      }
+    }
+  },
+  // Group by author and count posts
+  {
+    $group: {
+      _id: "$author.username",
+      post_count: { $sum: 1 },
+      total_likes: { $sum: "$likes" },
+      avg_views: { $avg: "$views" }
+    }
+  },
+  // Sort by post count descending
+  {
+    $sort: { post_count: -1 }
+  },
+  // Limit to top 10 authors
+  {
+    $limit: 10
+  }
+]);
+
+// Text search across multiple fields
+db.posts.find({
+  $text: { 
+    $search: "javascript web development" 
+  }
+}).sort({ 
+  score: { $meta: "textScore" } 
+});
+
+// Complex filtering with arrays and nested objects
+db.posts.find({
+  "tags": { $in: ["javascript", "tutorial"] },
+  "likes": { $gte: 10 },
+  "comments.author": "janedoe"
+});</pre>
+            </div>
+        </section>
+
+        <!-- Database Integration -->
+        <section class="section">
+            <h2>Database Integration in Full Stack Applications</h2>
+            <p>
+                Integrating databases into full stack applications requires careful consideration of connection management, 
+                query optimization, data modeling, and security practices. Modern applications typically use Object-Relational 
+                Mapping (ORM) tools or Object Document Mapping (ODM) libraries to simplify database interactions.
+            </p>
+            
+            <ul>
+                <li><strong>Connection Pooling:</strong> Managing database connections efficiently</li>
+                <li><strong>Data Validation:</strong> Ensuring data integrity at the application level</li>
+                <li><strong>Indexing:</strong> Optimizing query performance with proper indexes</li>
+                <li><strong>Backup Strategies:</strong> Regular data backups and disaster recovery</li>
+                <li><strong>Security:</strong> Protecting against SQL injection and unauthorized access</li>
+                <li><strong>Caching:</strong> Using Redis or Memcached to improve performance</li>
+                <li><strong>Migration:</strong> Managing database schema changes over time</li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>
