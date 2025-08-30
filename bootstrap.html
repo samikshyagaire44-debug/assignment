@@ -10,17 +10,37 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">CET138 Portfolio</a>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="fullstack.html" class="nav-link">Full Stack</a></li>
-                <li><a href="html.html" class="nav-link">HTML</a></li>
-                <li><a href="css.html" class="nav-link">CSS</a></li>
-                <li><a href="bootstrap.html" class="nav-link active">Bootstrap</a></li>
-                <li><a href="javascript.html" class="nav-link">JavaScript</a></li>
-            </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #2c5aa0, #1e3a5f);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">CET138 Portfolio</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="fullstack.html">Full Stack</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="html.html">HTML</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="css.html">CSS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="bootstrap.html">Bootstrap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript.html">JavaScript</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -435,9 +455,348 @@ yarn add bootstrap</pre>
                 <li><strong>Keep it simple:</strong> Don't over-complicate layouts with unnecessary nesting</li>
             </ul>
         </section>
+
+        <!-- Interactive Bootstrap Demo -->
+        <section class="section">
+            <h2>Interactive Bootstrap Demo</h2>
+            <p>Explore Bootstrap components and utilities with live examples:</p>
+            
+            <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; margin: 1rem 0;">
+                <h3>Bootstrap Component Builder</h3>
+                <p>Create different Bootstrap components dynamically:</p>
+                
+                <div class="row g-2 mb-3">
+                    <div class="col-md-3"><button onclick="createAlert()" class="btn btn-primary w-100">Create Alert</button></div>
+                    <div class="col-md-3"><button onclick="createCard()" class="btn btn-success w-100">Create Card</button></div>
+                    <div class="col-md-3"><button onclick="createBadge()" class="btn btn-info w-100">Create Badge</button></div>
+                    <div class="col-md-3"><button onclick="clearComponents()" class="btn btn-danger w-100">Clear All</button></div>
+                </div>
+                
+                <div id="component-showcase" class="border rounded p-3 bg-white" style="min-height: 200px;">
+                    <p class="text-muted text-center">Click buttons above to generate Bootstrap components!</p>
+                </div>
+            </div>
+
+            <div style="background: #e3f2fd; padding: 2rem; border-radius: 8px; margin: 2rem 0;">
+                <h3>Bootstrap Grid System Demo</h3>
+                <p>Experiment with different grid layouts:</p>
+                
+                <div class="row g-2 mb-3">
+                    <div class="col-md-4"><button onclick="showEqualColumns()" class="btn btn-outline-primary w-100">Equal Columns</button></div>
+                    <div class="col-md-4"><button onclick="showMixedColumns()" class="btn btn-outline-primary w-100">Mixed Columns</button></div>
+                    <div class="col-md-4"><button onclick="showResponsiveColumns()" class="btn btn-outline-primary w-100">Responsive Layout</button></div>
+                </div>
+                
+                <div id="grid-demo" class="border rounded p-3 bg-white">
+                    <p class="text-muted text-center">Select a grid layout above to see Bootstrap's grid system in action!</p>
+                </div>
+                
+                <div class="mt-3 p-3 bg-dark text-white rounded">
+                    <h5>Grid HTML Code:</h5>
+                    <pre id="grid-code" class="bg-secondary bg-opacity-25 p-2 rounded text-white"><code>No grid selected yet...</code></pre>
+                </div>
+            </div>
+
+            <div style="background: #fff3cd; padding: 2rem; border-radius: 8px; margin: 2rem 0;">
+                <h3>Bootstrap Utility Classes Demo</h3>
+                <p>Apply different Bootstrap utility classes to elements:</p>
+                
+                <div class="row g-2 mb-3">
+                    <div class="col-md-2"><button onclick="applySpacing()" class="btn btn-warning w-100 btn-sm">Spacing</button></div>
+                    <div class="col-md-2"><button onclick="applyColors()" class="btn btn-warning w-100 btn-sm">Colors</button></div>
+                    <div class="col-md-2"><button onclick="applyTypography()" class="btn btn-warning w-100 btn-sm">Typography</button></div>
+                    <div class="col-md-2"><button onclick="applyBorders()" class="btn btn-warning w-100 btn-sm">Borders</button></div>
+                    <div class="col-md-2"><button onclick="applyDisplay()" class="btn btn-warning w-100 btn-sm">Display</button></div>
+                    <div class="col-md-2"><button onclick="resetUtilities()" class="btn btn-secondary w-100 btn-sm">Reset</button></div>
+                </div>
+                
+                <div class="d-flex justify-content-center mb-3">
+                    <div id="utility-target" class="p-3 bg-light border rounded">
+                        Bootstrap Utility Target
+                    </div>
+                </div>
+                
+                <div class="bg-dark text-white p-3 rounded">
+                    <h5>Applied Classes:</h5>
+                    <code id="utility-classes" class="text-warning">p-3 bg-light border rounded</code>
+                </div>
+            </div>
+
+            <div style="background: #d1ecf1; padding: 2rem; border-radius: 8px; margin: 2rem 0;">
+                <h3>Bootstrap Modal & Collapse Demo</h3>
+                <p>Interactive Bootstrap components:</p>
+                
+                <div class="row g-2 mb-3">
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#demoModal">
+                            Launch Modal
+                        </button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-success w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample">
+                            Toggle Collapse
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        This is a collapsible content area created with Bootstrap's collapse component. 
+                        It can be toggled by clicking the button above. Perfect for FAQs, navigation menus, or any content you want to show/hide.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="demoModal" tabindex="-1" aria-labelledby="demoModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="demoModalLabel">Bootstrap Modal Demo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This is a Bootstrap modal component! Modals are perfect for:</p>
+                    <ul>
+                        <li>Displaying important information</li>
+                        <li>Confirming user actions</li>
+                        <li>Creating forms without page navigation</li>
+                        <li>Showing image galleries or media</li>
+                    </ul>
+                    <div class="alert alert-info" role="alert">
+                        <strong>Pro tip:</strong> Modals are responsive and accessible by default in Bootstrap 5!
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="alert('Modal action triggered!')">Save Changes</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        let componentCounter = 0;
+
+        function createAlert() {
+            const showcase = document.getElementById('component-showcase');
+            componentCounter++;
+            
+            const alertTypes = ['primary', 'success', 'danger', 'warning', 'info'];
+            const randomType = alertTypes[Math.floor(Math.random() * alertTypes.length)];
+            
+            const alertHTML = `
+                <div class="alert alert-${randomType} alert-dismissible fade show mb-2" role="alert">
+                    <strong>Alert ${componentCounter}!</strong> This is a Bootstrap ${randomType} alert component.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `;
+            
+            showcase.innerHTML += alertHTML;
+        }
+
+        function createCard() {
+            const showcase = document.getElementById('component-showcase');
+            componentCounter++;
+            
+            const cardHTML = `
+                <div class="card mb-3" style="max-width: 300px; display: inline-block; margin-right: 1rem;">
+                    <div class="card-header">
+                        Card ${componentCounter}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Bootstrap Card</h5>
+                        <p class="card-text">This card was created dynamically using Bootstrap classes.</p>
+                        <a href="#" class="btn btn-primary btn-sm">Action</a>
+                    </div>
+                </div>
+            `;
+            
+            showcase.innerHTML += cardHTML;
+        }
+
+        function createBadge() {
+            const showcase = document.getElementById('component-showcase');
+            componentCounter++;
+            
+            const badgeTypes = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
+            const randomType = badgeTypes[Math.floor(Math.random() * badgeTypes.length)];
+            
+            const badgeHTML = `
+                <span class="badge bg-${randomType} me-2 mb-2" style="font-size: 0.9rem;">
+                    Badge ${componentCounter}
+                </span>
+            `;
+            
+            showcase.innerHTML += badgeHTML;
+        }
+
+        function clearComponents() {
+            document.getElementById('component-showcase').innerHTML = 
+                '<p class="text-muted text-center">Click buttons above to generate Bootstrap components!</p>';
+            componentCounter = 0;
+        }
+
+        function showEqualColumns() {
+            const demo = document.getElementById('grid-demo');
+            const code = document.getElementById('grid-code');
+            
+            demo.innerHTML = `
+                <div class="row">
+                    <div class="col">
+                        <div class="p-3 bg-primary text-white text-center rounded">Column 1</div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3 bg-success text-white text-center rounded">Column 2</div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3 bg-danger text-white text-center rounded">Column 3</div>
+                    </div>
+                </div>
+            `;
+            
+            code.innerHTML = `<code>&lt;div class="row"&gt;
+    &lt;div class="col"&gt;Column 1&lt;/div&gt;
+    &lt;div class="col"&gt;Column 2&lt;/div&gt;
+    &lt;div class="col"&gt;Column 3&lt;/div&gt;
+&lt;/div&gt;</code>`;
+        }
+
+        function showMixedColumns() {
+            const demo = document.getElementById('grid-demo');
+            const code = document.getElementById('grid-code');
+            
+            demo.innerHTML = `
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="p-3 bg-primary text-white text-center rounded">Main Content (8/12)</div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 bg-secondary text-white text-center rounded">Sidebar (4/12)</div>
+                    </div>
+                </div>
+            `;
+            
+            code.innerHTML = `<code>&lt;div class="row"&gt;
+    &lt;div class="col-md-8"&gt;Main Content&lt;/div&gt;
+    &lt;div class="col-md-4"&gt;Sidebar&lt;/div&gt;
+&lt;/div&gt;</code>`;
+        }
+
+        function showResponsiveColumns() {
+            const demo = document.getElementById('grid-demo');
+            const code = document.getElementById('grid-code');
+            
+            demo.innerHTML = `
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-4 mb-2">
+                        <div class="p-3 bg-info text-white text-center rounded">Responsive 1</div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4 mb-2">
+                        <div class="p-3 bg-warning text-dark text-center rounded">Responsive 2</div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-4 mb-2">
+                        <div class="p-3 bg-success text-white text-center rounded">Responsive 3</div>
+                    </div>
+                </div>
+            `;
+            
+            code.innerHTML = `<code>&lt;div class="row"&gt;
+    &lt;div class="col-12 col-md-6 col-lg-4"&gt;Item 1&lt;/div&gt;
+    &lt;div class="col-12 col-md-6 col-lg-4"&gt;Item 2&lt;/div&gt;
+    &lt;div class="col-12 col-md-12 col-lg-4"&gt;Item 3&lt;/div&gt;
+&lt;/div&gt;</code>`;
+        }
+
+        // Utility class functions
+        function applySpacing() {
+            const target = document.getElementById('utility-target');
+            const spacingClasses = ['p-1', 'p-2', 'p-3', 'p-4', 'p-5', 'm-2', 'm-3', 'm-4'];
+            const randomSpacing = spacingClasses[Math.floor(Math.random() * spacingClasses.length)];
+            
+            target.className = `${randomSpacing} bg-light border rounded`;
+            updateUtilityClasses();
+        }
+
+        function applyColors() {
+            const target = document.getElementById('utility-target');
+            const colorClasses = [
+                'bg-primary text-white',
+                'bg-success text-white', 
+                'bg-danger text-white',
+                'bg-warning text-dark',
+                'bg-info text-white',
+                'bg-secondary text-white'
+            ];
+            const randomColor = colorClasses[Math.floor(Math.random() * colorClasses.length)];
+            
+            target.className = `p-3 ${randomColor} border rounded`;
+            updateUtilityClasses();
+        }
+
+        function applyTypography() {
+            const target = document.getElementById('utility-target');
+            const typoClasses = [
+                'text-center fw-bold',
+                'text-start fst-italic',
+                'text-end text-decoration-underline',
+                'text-uppercase fw-light',
+                'text-lowercase fs-4'
+            ];
+            const randomTypo = typoClasses[Math.floor(Math.random() * typoClasses.length)];
+            
+            target.className = `p-3 bg-light border rounded ${randomTypo}`;
+            updateUtilityClasses();
+        }
+
+        function applyBorders() {
+            const target = document.getElementById('utility-target');
+            const borderClasses = [
+                'border border-primary border-3',
+                'border border-success border-2 rounded-pill',
+                'border-top border-bottom border-danger border-4',
+                'border-start border-warning border-5',
+                'rounded-circle border border-info'
+            ];
+            const randomBorder = borderClasses[Math.floor(Math.random() * borderClasses.length)];
+            
+            target.className = `p-3 bg-light ${randomBorder}`;
+            updateUtilityClasses();
+        }
+
+        function applyDisplay() {
+            const target = document.getElementById('utility-target');
+            const displayClasses = [
+                'd-flex justify-content-center align-items-center',
+                'd-inline-block',
+                'd-flex flex-column',
+                'd-flex justify-content-between',
+                'd-grid gap-2'
+            ];
+            const randomDisplay = displayClasses[Math.floor(Math.random() * displayClasses.length)];
+            
+            target.className = `p-3 bg-light border rounded ${randomDisplay}`;
+            target.style.minHeight = '80px';
+            updateUtilityClasses();
+        }
+
+        function resetUtilities() {
+            const target = document.getElementById('utility-target');
+            target.className = 'p-3 bg-light border rounded';
+            target.style.minHeight = 'auto';
+            updateUtilityClasses();
+        }
+
+        function updateUtilityClasses() {
+            const target = document.getElementById('utility-target');
+            const classDisplay = document.getElementById('utility-classes');
+            classDisplay.textContent = target.className;
+        }
+    </script>
 </body>
 </html>
